@@ -1,0 +1,449 @@
+\documentclass[12pt]{article}
+
+% Essential Packages
+\usepackage{amsmath} % Advanced math typesetting
+\usepackage{amsfonts} % Mathematical fonts
+\usepackage{amssymb} % Additional mathematical symbols
+\usepackage{amsthm} % Theorem formatting
+\usepackage{mathtools} % Mathematical tools to improve amsmath
+\usepackage{bm} % Bold math symbols
+\usepackage{physics} % Simplified physics notations
+\usepackage{tikz} % Creating graphics programmatically
+\usepackage{pgfplots} % Plotting with LaTeX
+\pgfplotsset{compat=newest} % Compatibility setting for pgfplots
+
+
+% Page and Text Formatting
+\usepackage[a4paper,margin=1in]{geometry} % Page size and margins
+\usepackage{hyperref} % Hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+\title{Methods Notes - Week 6/7}
+\author{Kevin Medina \\
+        Department of Physics, Florida International University \\
+        Course: Mathematical Methods in Theoretical Physics 3113}
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Complex numbers and functions provide a easier way to represent information making it very useful in physics. A complex number is an ordered pair of two real numbers:
+
+\begin{align*}
+	z = (x,y) \\
+	z = x+iy
+\end{align*}
+
+
+
+In General:
+\begin{align*}
+  (a,b) &\neq (b,a) \\
+  (x,y) &\neq (y,x)
+\end{align*}
+
+All of complex analysis can be developed in terms of ordered pairs of numbers, variables, and functions:
+
+\begin{equation}
+	f(u(x,y),v(x,y))
+\end{equation}
+
+\section{Simple Operations}
+We can define addition and multiplication opperations for the complex vector space by following a similar form from cartesian space. Addition and multiplication are both defined as:
+\begin{equation}
+\begin{aligned}
+	z_1 \oplus z_2 
+	&=(x_1,y_1)+ (x_2,y_2) \\
+	&=(x_1+x_2,y_1+y_2)
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+	z_1 \odot z_2 
+	&=(x_1, y_1)(x_2,y_2) \\
+	&=(x_1 x_2 - y_1 y_2, x_1 y_2 + x_2 y_1) 
+\end{aligned}
+\end{equation}
+
+Using the definitions above, we can now describe addition and multiplication in the complex space:
+
+\begin{equation}
+\begin{aligned}
+  (x_1+iy_1)(x_2+iy_2) &= x_1 x_2 + i^2 y_1 y_2 + i(x_1 y_2 + y_1 x_2) \\
+  &= (x_1 x_2 - y_1 y_2)+ i(x_1 y_2 + y_1 x_2)
+\end{aligned}
+\end{equation}
+
+It is convenient to think about a complex number as a vector. Complex numbers, unlike real numbers, do not have cross or dot products. The space of complex numbers is denoted by Z
+
+
+\subsection{Properties of Complex Numbers}
+\begin{enumerate}
+\item
+Addition or Multiplication of two complex numbers results in a complex number:
+\begin{equation}
+\begin{aligned}
+	z(\oplus , \odot) => z'
+\end{aligned}
+\end{equation}
+
+\item
+	Complex numbers have a zero and unity identity
+
+\item All $z$'s in complex space have an additive and multiplicative inverse:
+\begin{equation}
+    \begin{aligned}
+        \text{Additive Inverse: } & -z \\
+        \text{Multiplicative Inverse: } & z^{-1} \text{ or } \frac{1}{z}
+    \end{aligned}
+\end{equation}
+
+\item If u \& v are complex numbers then $u^v$ is also a complex number.
+\end{enumerate}
+
+\subsection{Complex Conjugation}
+The division between two vectors is undefined and the same is true for complex numbers. We can resolve this issue by using the complex conjugate of $z$, which is simply the inverse of z.
+
+\begin{equation}
+    \begin{aligned}
+	    z^* &= x-iy\\
+	    z^* &= re^{-i \theta}
+    \end{aligned}
+\end{equation}
+
+The product of $z$ and $z^*$ results in a real number:
+\begin{equation}
+    \begin{aligned}
+	    z z^* &= (x+iy)(x-iy)\\
+		  &= x^2 + y^2\\
+		  &= |z|^2  
+    \end{aligned}
+\end{equation}
+
+Now we can resolve divison of two complex numbers(vectors):
+\begin{equation}
+    \begin{aligned}
+	    \frac{z_1}{z_2} &=\frac{z_1 z_2^*}{z_2 z_2^*}
+			    &=\frac{z_1 z_2^*}{|z_2|^2}
+    \end{aligned}
+\end{equation}
+
+\subsection{Simple Review of \textit{i}}
+The imaginary unit, $i$, is simply $\sqrt{-1}$. For reference:
+\begin{equation}
+    \begin{aligned}
+	    i &= \sqrt{-1}\\
+	    i^2 &= -1\\
+	    i^3 &= -i\\
+	    i^4 &= 1
+    \end{aligned}
+\end{equation}
+
+
+
+\section{Representing Complex Numbers in Polar}
+A complex number $z$ is often represented in polar form, where:
+\begin{equation}
+    \begin{aligned}
+	    x &= r\cos{\theta}\\
+	    y &= r\sin{\theta} \\
+	    z &= x + iy \\
+	    z &= r(\cos{\theta} + i\sin{\theta})\\
+	    z &= re^{i\theta}
+    \end{aligned}
+\end{equation}
+
+The module of complex number, $z$, is $|z|$ which is equivalent to $r$, they are used interchangeably ($|z| \equiv r$). The module of $e^{i \theta}$ is $1$. We have expressed z in two forms. In terms of cosine and sine, and in Euler's form ($ re^{i\theta}$).Euler's Form is convenient for performing exponential, division, or root operations. Here are a few examples:
+\begin{enumerate}
+	\item
+\begin{equation}
+    \begin{aligned}
+	    z^n &= (re^{i\theta})^n\\
+		&= r^n e^{in\theta}
+    \end{aligned}
+\end{equation}
+
+\item
+\begin{equation}
+    \begin{aligned}
+	    \frac{1}{z} = \frac{e^{-i\theta}}{r}
+    \end{aligned}
+\end{equation}
+
+\item
+\begin{equation}
+    \begin{aligned}
+	z_1 &= r_1 e^{i\theta_1}\\
+	z_2 &= r_2 e^{i\theta_2}\\
+	\frac{z_1}{z_2}&=\frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)}
+    \end{aligned}
+\end{equation}
+\end{enumerate}
+
+\subsection{Euler's Identity}
+In addition to representing complex numbers in the polar plane, we also have an important identity to discuss -- Euler's identity:
+\begin{equation}
+    \begin{aligned}
+    1+e^{\pm i \pi}
+    \end{aligned}
+\end{equation}
+
+The importance of Euler's identity lies in its ability to bridge seemingly unrelated mathematical concepts: exponential functions, complex numbers, and trigonometry. It encapsulates the essence of complex exponentiation and demonstrates that complex exponential functions can produce real values.
+
+\subsection{Derivation of Euler's Formula}
+\begin{equation}
+    \begin{aligned}
+	    e^{i \theta} &= \sum_{n=0}^{\infty}{\frac{(i \theta)^n}{n!}}\\
+			 &= \sum_{n=even}^{\infty}{\frac{(i \theta)^n}{n!}} + \sum_{n=odd}^{\infty}{\frac{(i \theta)^n}{n!}}\\
+	    e^{i \theta} &= \cos(\theta) + i\sin{\theta}
+    \end{aligned}
+\end{equation}
+
+\subsection{Root Operations}
+Attempting to express $z^{\frac{1}{n}}$, where $n$ is a positive integer, is difficult because of Euler's form. Given, $z^{\frac{1}{n}} = r^{\frac{1}{n}}e^{i(\theta +2k \pi)}$, realise that for any n value, differing choices of k will lead to n distinct values of $z^{\frac{1}{n}}$. All the roots, when sketched on the complex plane, will line up on a circle with radius $r^{\frac{1}{n}}$, and each root would be separated from one another by an angle of $\frac{2\pi}{n}$.
+
+\subsection{On a Circle in Complex}
+Following from the previous discussion, becoming familiar with circles in the complex plane is useful for solving counture integrals. In complex a circle is defined as: 
+
+\begin{equation}
+    \begin{aligned}
+	    |z-z_0| = r
+    \end{aligned}
+\end{equation}
+
+Where $z_0$ is the center of the circle and $r$ the radius. From this, we can define every point along the circle as:
+\begin{equation}
+    \begin{aligned}
+	    |z-z_0| = re^{i \theta}
+    \end{aligned}
+\end{equation}
+Where $\theta$ is from $0$ to $2\pi$.The differential of this definition of $z$ is $dz = rie^{i \theta}$, where r is constant. This is useful for contour integrals involving a circle/arc/semicircle.  
+
+Example:
+\\\textbf{Sketch $z-z_0 = e^{i \theta}$, $\theta \in [0,2\pi)$ on the complex plane and fill in the blank:} 
+\\$z-z_0 = e^{i \theta}$ represents a \textit{circle} on the complex plane, which has the \textit{$r=1$} and \textit{$z_0$} at the origin.
+
+\section{Complex Analysis}
+\subsection{Analytic Functions}
+If $f(z)$ is differentiable and single-valued in a region of the complex plane, it is said to be an \textbf{analytic} function in that region. In order for a complex function, $f(z)$, to be differentiable it must satisfy the \textbf{Cauchy-Riemann} conditions. The conditions are necessary for the existence of a derivative of $f(z)$, thus, in order for $\frac{df}{dz}$ to exist, the \textbf{Cauchy-Riemann} conditions must hold. Simply, we need to guarantee the independance of directionality for the existance of the derivative. Below provides this: 
+\begin{align}
+	\frac{\delta f}{\delta z} &= \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x}\\
+    \frac{\partial u}{\partial x} &= \frac{\partial v}{\partial y}, \\
+    \frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x},
+\end{align}
+where $f(z) = u(x, y) + iv(x, y)$, and $z = x + iy$.
+
+\subsubsection*{Example}
+Given:$f(z) = u(x,y) + iv(x,y)$, and $u(x,y) = x^2 - y^2$\\
+Find:$f(z)$\\
+\begin{equation*}
+	\pdv{u}{x} = \pdv{(x^2 - y^2)}{x} = 2x
+\end{equation*}
+\begin{equation*}
+	\pdv{u}{y} = \pdv{(x^2 - y^2)}{y}= -2y
+\end{equation*}
+\begin{equation*}
+\int(\pdv{v}{x} = -\pdv{u}{y})dx = \int(2y)dx = 2xy + f_1(y)
+\end{equation*}
+\begin{equation*}
+    v(x,y)=\int(\pdv{v}{y}=\pdv{u}{x})=\int(2x)dy = 2xy + f_2(x)
+\end{equation*}
+
+From this $f_1(y) = f_2(x) = C$, $\therefore$
+\begin{equation*}
+   f(z)=u+iv = x^2 - y^2 + i(2xy+C) = z^2 +iC 
+\end{equation*}
+
+\subsubsection*{Remarks}
+Recognize that $z^2 = x^2 - y^2 + i(2xy)$\\
+This should hold for any form $f(z)$ assumes, even if in the final expression there is no $x$ nor $y$.
+
+
+\subsection{Singularity and Poles}
+A \textbf{singularity} is a function whose values increase towards infinity. A \textbf{pole} is an isolated singularity(a point). Given a fucntion, $f(z)$, then $z_0$ is identified as a pole of order $n$:
+\begin{equation}
+	f(z) = \frac{g(z)}{(z-z_0)^n}
+\end{equation}
+\subsubsection{Possible Cases}
+\begin{enumerate}
+	\item If $n=1$, then $z_0$ is considered to be a \textbf{simple pole}.
+	\item $z$ will tend toward infinity as it approaches $0$, this is known as an \textbf{essential singularity}. 
+\end{enumerate}
+
+\subsubsection*{Remarks}
+The notion of poles and sigularities play an important role in the concepts of residues and various integral theorems including the residue theorem. For the case of a simple pole, a residue is simply the remainder of $f(z)$ after removing the pole. In the simple case of simple poles the remainder is $g(z_0)$
+
+
+\subsection{Contour Integrals on Complex Planes and Integral Theorems}
+Contour integrals, like path integrals, depend on the paths and the end points. We can always calculate the integral of $f(z)$ by noting:
+\begin{equation}
+    f(z) \equiv u(x,y) +i(x,y)
+\end{equation}
+\begin{equation}
+   dz = d(x+iy) = dx + idy 
+\end{equation}
+\begin{equation}
+	\int_{z_{1}}^{z_{2}}f(z)dz = \int_{z_{1}}^{z_{2}}(u(x+iy)+i(x,y))(dx+idy)
+\end{equation}
+\begin{equation}
+    \int_{z_{1}}^{z_{2}}f(z)dz=\int_{z_{1}}^{z_{2}}(udx-vdy)dx+i \int_{z_{1}}^{z_{2}}(vdx+udy)dy
+\end{equation}
+
+Depending on the contour/line/path that is being integrated along and its direction, the $x$ and $y$ are dependent on each other defined by the curve equation.
+It could then be simpler to adopt the polar form to calculate contour integrals, especially if it's on a circle. I $z = re^{i\theta}$, then $dz = e^{i\theta}(dr+idr\theta)$,then:
+\begin{equation}
+    \int_{z_{1}}^{z_{2}}f(z)dz=\int_{z_{1}}^{z_{2}}f(r,\theta)e^{i\theta}(dr+ird\theta)
+\end{equation}
+
+On a circle, this integral becomes much simpler, since $r$ is constant, then it would simply become:
+\begin{equation}
+    \int_{z_{1}}^{z_{2}}f(z)dz=\int_{z_{1}}^{z_{2}}f(r,\theta)e^{i\theta}ird\theta
+\end{equation}
+
+\subsubsection{Example - Circle Centered at the Origin}
+Integrate $f(z)=z^{n}$ around a circle with a radius $r$ and centered around the origin. 
+
+\begin{enumerate}
+	\item Recognize that polar form should be used.
+		\begin{equation*}
+		    z=re^{i\theta}
+		\end{equation*}
+		\begin{equation*}
+			dz=ire^{i\theta}
+		\end{equation*}	
+		\begin{equation*}
+		    	d\theta \equiv izd\theta
+		\end{equation*}
+	
+	\item Solve the path integral
+		\begin{equation*}
+			\oint f(z)dz = \oint (re^{i\theta})^n ire^{i\theta} d\theta = \oint (re^{i\theta})^n ire^{i\theta}d\theta = ir^{n+1}\oint e^{i(n+1)\theta}d\theta
+		\end{equation*}	
+
+	\item $f(z) = z^{n}$, then 
+		    \[ \oint f(z)dz = \begin{cases} 
+          0, & n \neq -1 \\
+          2\pi i & n = -1 \\
+       \end{cases}
+    \]
+\end{enumerate}
+
+\subsubsection{Example: Integral Over the Rectangular Contour}
+Perform the integral of $\oint z^{n}dz$ over the rectangular contour
+\begin{equation*}
+\mathcal{Z}_1(a-bi) \rightarrow \mathcal{Z}_2(a+bi) \rightarrow \mathcal{Z}_3(-a+bi) \rightarrow \mathcal{Z}_4(-a-bi) \rightarrow \mathcal{Z}_1
+\end{equation*}
+
+\begin{enumerate}
+	\item Define the paths along each segment. 
+	\item Solve the integral for each path, then add all segments together.
+\end{enumerate}
+
+\section{Integral Theorems}
+Function are required to be analytic in order to apply several integral theorems.
+\subsection{Cauchy's first integral theorem}
+Cauchy's integral theorem states that: \textit{If $f(z)$ is an analytic function at all points of a simply connected region in the complex plane and if C is a closed contour within that region, then}
+\begin{equation}
+    \oint_C f(z)dz=0
+\end{equation}
+A region is \textbf{simply connected} if every closed curve within it can be shrunk continuously to a point that is within the region - A connected region with no holes. The $C$ represents a contour that integrating over. The contour must be "within" the region of analyticity. The integral is path independent. This is crucial for integrals that are difficult to solve due to a complicated path. We can choose a simpler path between two points to solve the same integral.
+
+\subsection{Cauchy's Second Integral Theorem}
+Cauchy's Integral formula has remarkable results. The value of an analytic function $f(z)$ is given at an arbitrary interior point $z=z_{0}$ once the values on the boundary $C$ are specified. It must be emphasized that $z_{0}$ is an interior point. The integration along contour is defined in the counter clockwise direction ($CCW$). Here is the integral formula:
+\begin{equation}
+    \oint \frac{f(z)}{z-z_{0}}dz = 2\pi if(z_{0})
+\end{equation}
+We can easily observe that there is a pole in our equation. This is of no worry since we can carve out a contour that bypasses this pole. Thus, allowing us to create a new contour based on the original one with an infinitely small opening. This contour will carve out the pole by following a small circular path around the pole. And, again, in a similar manner to the previous theorem, we define the paths along each segment, then, solve the integral for each path, and, finally, add all the segments together.
+
+This theorem has exteions to derivatives. It can be proven using the second integral theorem when $n=0$ and then extend to $n > 1$.
+\begin{equation}
+    \oint \frac{f(z)}{(z-z_{0})^{n+1}}dz = 2\pi i \frac{f^{n}(z_{0})}{n!}
+\end{equation}
+
+In addition, Cauchy's inequality simply states that the product of magnitudes is greater than magnitude of the products.
+\begin{equation}
+	|f^{n}(z_{0})| = |\frac{n!}{2\pi i} \oint \frac{f(z)}{(z-z_{0})^{n+1}}dz| \leq |\frac{n!}{2\pi i}| \oint \frac{|f(z)|}{|(z-z_{0})^{n+1}|}|dz| 
+\end{equation}
+\begin{equation}
+    =\frac{n!}{2\pi} \frac{f_{max}}{r^{n+1}} (2\pi r) = \frac{n!}{r^{n}}f_{max}
+\end{equation}
+
+Recall this to solve the above:
+\begin{equation}
+    |e^{i(n+1)\theta}|=1
+\end{equation}
+\begin{equation}
+    \oint|dz| = 2\pi r
+\end{equation}
+
+The inequality is useful when calculating contour integrals involving infinite circles/semicircles.
+
+\subsection{Residue Theorem}
+A powerful theorem that allows us to transform a complicated contour integral intomore manageable algebraic equations. We can use this theorem to derive previously mentioned integral theorems. Residues are what remains after removing a pole from a function. In the case of a simple pole it was simply the function that remained after multiplying by $(z-z_{0})$. For higher pole ordered functions, we must alter our notion to account for the $k^{th}$ order pole at $z_{0}$. This is done by introducing the \textbf{Laurent series}.
+\begin{equation}
+	f(z) = \frac{h(z)}{(z-z_{0})^{k}} = \sum_{n=0}^{\infty } \frac{h^{m+k}(z)|_{z=z_{0}}}{(m+k)!}
+\end{equation}
+
+\begin{equation}
+	b_{m} = \frac{h^{m+k}(z)|_{z=z_{0}}}{(m+k)!}
+\end{equation}
+
+From this, we find that the residue corrisponds to $b_{-1}$, the coefficient of this Laurent series for the $(z-z_{0})^{-1}$ term. Remember that $m=n-k$.
+\begin{equation}
+	Residue = R = b_{-1} = \frac{1}{(k-1)!} \frac{d^{k-1}(f(z)(z-z_{0})^{k})}{dz^{k-1}}|_{z=z_{0}}
+\end{equation}
+
+In general, we may take various $j-th$ poles, where $0\leq J \leq \infty$, as the integrals along a contour. Each pole contributing to a small circle of $2\pi i R_{j}$ to the total integral.
+\begin{equation}
+    \oint f(z)dz = \sum_{j} 2\pi i R_{j}
+\end{equation}
+
+
+\subsubsection{Understanding Jordan's Lemma}
+Jordan's Lemma is a result in complex analysis that plays a crucial role in evaluating certain types of integrals, particularly when applying the Residue Theorem to compute contour integrals over semi-infinite contours in the complex plane. It is especially useful for integrals involving oscillatory functions, where the path of integration can be closed in the upper or lower half-plane to apply the Residue Theorem effectively.
+
+The lemma states that for a contour \(C_R\) described as a semicircle of radius \(R\) centered at the origin in the upper half of the complex plane, and for a function \(f(z) = e^{iaz}g(z)\), where \(a > 0\) is a real number and \(g(z)\) is a function that is analytic and decreases sufficiently fast as \(|z| \rightarrow \infty\), the integral of \(f(z)\) over \(C_R\) vanishes as \(R \rightarrow \infty\).
+
+Formally, if \(g(z)\) meets the condition that \(|g(z)| \leq \frac{M}{R^n}\) for some \(M > 0\) and \(n > 0\), as \(R \rightarrow \infty\), then:
+\[
+\lim_{R \rightarrow \infty} \int_{C_R} e^{iaz}g(z) \, dz = 0
+\]
+
+\textbf{Application:}
+Jordan's Lemma is instrumental in simplifying the computation of integrals by allowing for the evaluation of residues at poles within the contour, while ensuring that the contributions from the semicircular paths at infinity are negligible 
+
+
+\subsubsection{Using the Residue Theorem to Determine Various Integrals and Apply Jordan's Lemma}
+The Residue Theorem is an invaluable tool for computing integrals of real functions that are challenging by traditional means, simplifying these tasks into more manageable algebraic operations. Employing the Residue Theorem typically involves the following essential steps:
+
+\begin{enumerate}
+    \item \textbf{Extension to the Complex Plane:} Real functions are extended to the complex plane by replacing the real variable, such as \(x\), with a complex variable \(z\). This step is foundational in applying complex analysis techniques to real integrals.
+    
+    \item \textbf{Contour Construction:} A closed contour path is constructed in the complex plane. This path may encompass real and/or imaginary axes and is selected so that the complex integrals computed along it are directly related to the original real integrals. To complete the contour, an imaginary path, like semicircles with an infinite radius, is added. 
+    
+    \item \textbf{Evaluation of Contour Integrals:} The integral over the constructed contour is considered as a sum of integrals over individual paths. By choosing contours wisely—taking advantage of properties like Jordan's Lemma and Cauchy's Inequality—it's often possible to negate the contribution from certain paths, such as those over infinite semicircles (\(R \rightarrow \infty\)).
+    
+    \item \textbf{Navigating Poles:} When encountering poles within the contour, additional paths may be necessary to avoid singularities. These are usually small circles or semicircles (\(r \rightarrow 0\)) around each pole. The integrals over these small paths can typically be evaluated with ease by expressing \(z\) in polar coordinates, drawing on the principles behind the Residue Theorem itself.
+    
+    \item \textbf{Application of the Residue Theorem:} Finally, the sum of the path integrals is calculated using the Residue Theorem. This step often reduces to straightforward algebraic computations, thanks to the theorem's ability to simplify the evaluation of complex contour integrals into residues at poles within the contour.
+\end{enumerate}
+
+
+
+
+
+
+
+
+\end{document}

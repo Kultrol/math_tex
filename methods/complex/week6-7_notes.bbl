@@ -1,0 +1,223 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global}
+    \entry{Boeglin2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2459395ea31780c646d1ecdfb544f9af}{%
+           family={Boeglin},
+           familyi={B\bibinitperiod},
+           given={Werner},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{fullhash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{bibnamehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{authorbibnamehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{authornamehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{authorfullhash}{2459395ea31780c646d1ecdfb544f9af}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/em_ratio.html}}
+      \field{note}{Accessed: 01/24/24}
+      \field{title}{Modern Lab Manual: Electron Charge to Mass Ratio}
+      \field{year}{2024}
+    \endentry
+    \entry{Newell2018}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=9706fc351e690bb059e610842bfc8481}{%
+           family={Newell},
+           familyi={N\bibinitperiod},
+           given={D.\bibnamedelimi B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f117b7b1a120eb1e43caca9f558f06d0}{%
+           family={Cabiati},
+           familyi={C\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbb649dd12820b33ced431511fb48fe8}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e2aa4538b836b65af95efab66bf8c314}{%
+           family={Fujii},
+           familyi={F\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71bd1e2187f0bd869677b856046475b2}{%
+           family={Karshenboim},
+           familyi={K\bibinitperiod},
+           given={S.\bibnamedelimi G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c65150c14100bf2acc069c96668622d}{%
+           family={Margolis},
+           familyi={M\bibinitperiod},
+           given={H.\bibnamedelimi S.},
+           giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{78554e27359dfe5c2c0e422196762b2e}
+      \strng{fullhash}{8821c0700746bf11e62366c957f00dda}
+      \strng{bibnamehash}{8821c0700746bf11e62366c957f00dda}
+      \strng{authorbibnamehash}{8821c0700746bf11e62366c957f00dda}
+      \strng{authornamehash}{78554e27359dfe5c2c0e422196762b2e}
+      \strng{authorfullhash}{8821c0700746bf11e62366c957f00dda}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Metrologia}
+      \field{number}{1}
+      \field{title}{The CODATA 2017 values of h, e, k, and N\(_A\) for the revision of the SI}
+      \field{volume}{55}
+      \field{year}{2018}
+      \field{pages}{L13\bibrangedash L16}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1088/1681-7575/aa950a
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/1681-7575/aa950a
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/1681-7575/aa950a
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global}
+    \entry{Boeglin2024}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2459395ea31780c646d1ecdfb544f9af}{%
+           family={Boeglin},
+           familyi={B\bibinitperiod},
+           given={Werner},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{fullhash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{bibnamehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{authorbibnamehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{authornamehash}{2459395ea31780c646d1ecdfb544f9af}
+      \strng{authorfullhash}{2459395ea31780c646d1ecdfb544f9af}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/em_ratio.html}}
+      \field{note}{Accessed: 01/24/24}
+      \field{title}{Modern Lab Manual: Electron Charge to Mass Ratio}
+      \field{year}{2024}
+    \endentry
+    \entry{Newell2018}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=9706fc351e690bb059e610842bfc8481}{%
+           family={Newell},
+           familyi={N\bibinitperiod},
+           given={D.\bibnamedelimi B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f117b7b1a120eb1e43caca9f558f06d0}{%
+           family={Cabiati},
+           familyi={C\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbb649dd12820b33ced431511fb48fe8}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e2aa4538b836b65af95efab66bf8c314}{%
+           family={Fujii},
+           familyi={F\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71bd1e2187f0bd869677b856046475b2}{%
+           family={Karshenboim},
+           familyi={K\bibinitperiod},
+           given={S.\bibnamedelimi G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c65150c14100bf2acc069c96668622d}{%
+           family={Margolis},
+           familyi={M\bibinitperiod},
+           given={H.\bibnamedelimi S.},
+           giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{78554e27359dfe5c2c0e422196762b2e}
+      \strng{fullhash}{8821c0700746bf11e62366c957f00dda}
+      \strng{bibnamehash}{8821c0700746bf11e62366c957f00dda}
+      \strng{authorbibnamehash}{8821c0700746bf11e62366c957f00dda}
+      \strng{authornamehash}{78554e27359dfe5c2c0e422196762b2e}
+      \strng{authorfullhash}{8821c0700746bf11e62366c957f00dda}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Metrologia}
+      \field{number}{1}
+      \field{title}{The CODATA 2017 values of h, e, k, and N\(_A\) for the revision of the SI}
+      \field{volume}{55}
+      \field{year}{2018}
+      \field{pages}{L13\bibrangedash L16}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1088/1681-7575/aa950a
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/1681-7575/aa950a
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/1681-7575/aa950a
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
