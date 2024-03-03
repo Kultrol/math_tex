@@ -9,8 +9,12 @@
 \usepackage{bm} % Bold math symbols
 \usepackage{physics} % Simplified physics notations
 \usepackage{tikz} % Creating graphics programmatically
+\usetikzlibrary{calc,angles,quotes}
 \usepackage{pgfplots} % Plotting with LaTeX
+\usepackage{wasysym}
 \pgfplotsset{compat=newest} % Compatibility setting for pgfplots
+
+
 
 
 % Page and Text Formatting
@@ -32,7 +36,9 @@
 
 
 
+
 \begin{document}
+
 
 \maketitle
 
@@ -43,7 +49,6 @@ Complex numbers and functions provide a easier way to represent information maki
 	z = (x,y) \\
 	z = x+iy
 \end{align*}
-
 
 
 In General:
@@ -441,9 +446,288 @@ The Residue Theorem is an invaluable tool for computing integrals of real functi
 
 
 
+\section{Applications through Problems}
+We will show the usage of the concepts by the solutions provied for each complex homework provided.
+
+\subsection{Complex Homework - A}
+\begin{enumerate}
+
+	\item Lightening Knowledge Refresher
+		\begin{enumerate}
+
+		\item The module($|z| = r$) of $e^{i0.123456788}$ is \_\_?
+			\begin{equation*}
+				    |e^{i0.123456788}| = 1
+			\end{equation*}
+		\item Find the values of: $sin(30)$, $cos(45)$, $tan(120)$ - exact answers only.
+		\begin{equation*}
+			sin(30^{\circ}) = 1
+		\end{equation*}	
+
+		\begin{equation*}
+			cos(45^{\circ}) = \frac{\sqrt{2}}{2}	
+		\end{equation*}	
+
+		\begin{equation*}
+			tan(120^{\circ}) = \sqrt{3}
+		\end{equation*}	
+
+
+		\item Sketch a triangle with three sides lengths of 3, 4, and 5 respectively. Note all angles are to be represented as integers approximations. 
+			
+		\item Sketch a complex plane - $z=x+iy=re^{i\theta}$, and $z^{*}a$, $z^{2}$, $z^{\frac{1}{2}}$. All should be sketched on the same plane with all variables noted properly (assume $r > 1$)
+
+\begin{center}
+\begin{tikzpicture}
+    % Draw axes
+    \draw[thin,->] (-2,0) -- (4,0) node[anchor=north west] {$\Re$};
+    \draw[thin,->] (0,-2) -- (0,4) node[anchor=south east] {$\Im$};
+    
+    % Define z = x + iy = re^{i\theta}
+    \def\r{2.5} % r > 1
+    \def\angle{40} % Angle theta
+    \pgfmathsetmacro{\x}{\r*cos(\angle)} % Real part of z
+    \pgfmathsetmacro{\y}{\r*sin(\angle)} % Imaginary part of z
+    
+    % Draw z
+    \draw[thick,->] (0,0) -- (\x,\y) node[midway,above] {$z$};
+    \draw[red,thick,dashed] (\x,0) -- (\x,\y) node[midway,right] {$iy$};
+    \draw[red,thick,dashed] (0,\y) -- (\x,\y) node[midway,above] {$x$};
+    
+    % Draw z conjugate
+    \draw[thick,->,blue] (0,0) -- (\x,-\y) node[midway,below] {$z^*$};
+    
+    % Angle theta
+    \draw[thick] (1,0) arc (0:\angle:1) node[midway,right] {$\theta$};
+    
+    % Draw z^2 and z^(1/2) approximately, for demonstration
+    % Assuming r > 1, z^2 will be further out and z^(1/2) closer to the origin
+    \pgfmathsetmacro{\rSquared}{\r*\r}
+    \pgfmathsetmacro{\rSqrt}{sqrt(\r)}
+    \pgfmathsetmacro{\xSquared}{\rSquared*cos(2*\angle)}
+    \pgfmathsetmacro{\ySquared}{\rSquared*sin(2*\angle)}
+    \pgfmathsetmacro{\xSqrt}{\rSqrt*cos(\angle/2)}
+    \pgfmathsetmacro{\ySqrt}{\rSqrt*sin(\angle/2)}
+    
+    % Draw z^2
+    \draw[thick,->,green] (0,0) -- (\xSquared,\ySquared) node[near end,above left] {$z^2$};
+    
+    % Draw z^(1/2)
+    \draw[thick,->,purple] (0,0) -- (\xSqrt,\ySqrt) node[near end,below right] {$z^{1/2}$};
+    
+    % Labels
+    \node at (\x/2,-0.3) {$r$};
+\end{tikzpicture}
+\end{center}
+		
+		\end{enumerate}
+
+
+	\item 
+		\begin{enumerate}
+
+		    	\item Given $z=3+4i$. Determine the polar form of $z$, $z^{*}$, $\frac{1}{z}$, and $z^{n}$.  Both $a$ and $b$ are real constants. 
+
+			\item Given $z=a+ib$. Determine the polar form of $z$, $z^{*}$, $\frac{1}{z}$, and $z^{n}$.  Both $a$ and $b$ are real constants. 	
+
+		\item $z = \frac{1}{\sqrt{2}} + \frac{1}{{\sqrt{2}}}i$. Determine ($\frac{1}{z^{*}}$) in polar forms and sketch your results in the complex plane. Describe how these results are arranged on the complex plane in words.
+		\end{enumerate}
+		
+	\item 
+		\begin{enumerate}
+
+		    \item $z=1+2i$, compute $\frac{z-2z^{*}}{2z+z^{*}}$ and $z^{\frac{1}{3}}$, the sketch all results on the complex plane.
+
+		\item Sketch, on the complex plane, a circle of radius $R=5$ centered at $z_{0} = 2 +i$. Define this circle using the polar form.
+
+
+		\item $f(z) = e^{z}$. Is it analytic?
+
+		\end{enumerate}
 
 
 
+	\item $f(z)=f(x+iy)=u(x,y)+iv(x,y)$; And it's known that $f(z)$ is analytic.
+		\begin{enumerate}
+
+		    \item If $v(x,y) = 3x^{2} y-y^{3}$, determine $u(x,y)$ first, then determine $f(z)$ directly in terms of z (the expression should not include x or y), using Cauchy-Riemann relations. If there is any overall integration constant, set it to be equal to $0$.
+
+		\item For part a) function, along the curved path connecting point $A$ at origin and $B$ at $(1+i)$: $\int_{A}^{B}f(z)dz=$?
+
+		\item Similarly, if $u(x,y) = (xcos(y)-ysin(y))e^{x}$, determine if $v(x,y)$ first then $f(z)$ directly in terms of $z$.
+		\end{enumerate}
+
+	\item 
+		For $f(z) = z^{n}$, determine the contour integral $\oint f(z)dz$ following the rectangular path $(a,b) -> (-a,b) -> (a,-b) -> (a,b) $ in the complex plane. Both a and b are positive real constants.
+		\begin{enumerate}
+
+		    \item Sketch the path on the complex plane first and then define $z$ and $dz$ on each of the four
+
+		\item $\oint f(z)dz=$?
+
+		\end{enumerate}
+	
+	\item
+		Consider two paths: $C1:(0,0) -> (1,0) -> (1,1)$, and $C2: (0,0) -> (0,1) -> (1,1)$ in the ocmplex plane.
+		\begin{enumerate}
+
+		    \item 
+			    $f(z)=z^{2}$; Determine $\oint f(z)dz$ along $C1$ and $C2$; Are the results the same for both paths?
+
+		\item $f(z)=z^{*}$; Determine $\oint f(z)dz$ along $C1$ and $C2$; Are the results the same for both paths?
+
+		\end{enumerate}
+
+	\item Use Cauchy's integral theorems (and/or the extensions) to compute the following(for any closed contour around $z_{0} = i$).
+		\begin{enumerate}
+
+			\item $\oint (z-z_{0})^{n}dz =  
+		  \begin{cases} 
+          ?, & n \neq -1 \\
+          ? & n = -1 \\
+  \end{cases} $
+
+  \item $\oint \frac{e^{z}+iz^{2}}{z-z_{0}}dz$
+	  \item $\oint \frac{e^{z}+iz^{2}}{(z-z_{0})^{3}}dz$
+    
+
+		\end{enumerate}
+
+\end{enumerate}
+
+\subsection{Complex Homework - B}
+\begin{enumerate}
+
+    \item Knowledge Refresher:
+	    Determain, without a calculator, the modules for the following complex numbers: 
+	    \begin{enumerate}
+
+	        \item $e^{ilog(e+\theta)}$
+		\item $(e^{i0.123456788 \pi})^{2}$
+		\item $e^{iz}$, $z=x+iy$ ($x,y$ are real) 
+		\item $(re_{-i \theta})^{n}$, $(n,r,\theta$ are all real and positive $)$
+
+	    \end{enumerate}
+	
+	\item Consider $f(z) = \frac{e^{iz}}{z}$. Determine $\lim_{r\to0} \int_{-r}^{r}f(z)dz$ along the small semicircle shown below, in counterclockwise direction.
+	
+	\item $f(z)=\frac{e^{iz}-2}{z}$; Determine $\lim_{r\to0}\int_{A}^{B}f(z)dz$ along the arc indicated:
+
+	\item Consider the real function $f(x)= \frac{x^{2}}{(4+x^{2})^{2}}$ and its extension in to the complex plane.
+		\begin{enumerate}
+
+		    \item Determine the poles of $f(z)$ and indicate the order of the poles.
+			    \item Sketch an appropriate contour that you want to use to determine $\int_{\infty}^{\infty} \frac{x^{2}}{(4+x^{2})^{2}}dx$ and indicate the locations of the poles. Explain how each part of the contour contribute or does not contribute to the integral, and how they are related to $\int_{\infty}^{\infty} \frac{x^{2}}{(4+x^{2})^{2}}dx$
+
+		\item Determine $\int_{\infty}^{\infty} \frac{{x^{2}}(4+x^{2})^{2}}dx$
+
+		\end{enumerate}
+
+\item Consider the real function $f(x)= \frac{x^{2}}{(1+x^{4})}$ and its extension into the complex plane.
+	\begin{enumerate}
+
+	    \item Determine the simple poles of $f(z)$
+	\item Use the residue theorem to determine $\int_{\infty}^{\infty} f(x)dx$ using a contour that include the real axis and the upper semicirle with a radius $R \to \infty$
+	
+	\item Repeat part b), but use a new contour(there is more than one choice) that involves both real and imaginary axes. Your contour cannot have a semicircle.
+
+	\item Repeat part b), but use a different semicircle that only involves that imaginary axis, not the real one.
+
+	\end{enumerate}
+
+	\item Consider the real function $f(x) = \frac{sin^{2}(x)}{x^{2}}$ and its extention into the complex plane. Note $sin^{2}(x) = \frac{1-cos(2x)}{2}$, and replace $cos(2x)$ with $e^{i2z}, x^{2}$ with $z^{2}$
+		\begin{enumerate}
+
+		    \item Determine the residue of the double(not simple) pole of f(z) at z=0
+		\item Determine $\int_{\infty}^{\infty} f(z)dz$ - Cauchy's integration theorem and residue theorem are needed, and symmetry consideration (Hint: Choose a contour that includes the real axis and the upper semicircle with a radius $R \to \infty$. However, since the pole is on the real axis, you need to come up with another small upper semicircle around the pole to get around it)
+
+
+		\end{enumerate}
+
+
+	\item Consider the real function $f(x) = \frac{cos(kx)}{(x^{2}+a^{2})}$ and its extension into the complex plane, by replacing $cos(kx)$ with $e^{ikz}$, $x^{2}$with $z^{2}$. ($k$ and $a$ are positive, real constants) 
+		\begin{enumerate}
+
+		    \item Determine the poles of f(z)
+		\item Come up with a proper contour so that you could use residue theorem and determine $\int_{\infty}^{\infty} f(x) dx$
+
+		\end{enumerate}
+
+	\item In order to prove Cauchy's first integral theorem, we used Cauchy's condition for analytic complex functions as well as the Stoke's theorem to show that the real part of the integral $\oint f(z)dz=0$. Similarly, show that the imaginary part of $\oint f(z)dz=0$ as well. $f(z) \equiv u(x,y)+iv(x,y)$.
+
+	\item The residue for the function $\frac{1}{x^{4}+1}$ at $z_{1}=e^{\frac{i\pi}{4}} \equiv \frac{\sqrt{2}}{2}(1+i)$; Compute the residues at the other three poles as well.
+
+\end{enumerate}
+
+
+\newpage
+\section{The Unit Circle}
+The unit circle and it's corresponding angles are provided in both degree's and radians.
+\begin{center}
+	\begin{tikzpicture}[scale=5.3,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.5cm) -- (0cm,1.5cm) node[above,fill=white] {$y$};
+
+        % draw the unit circle
+        \draw[thick] (0cm,0cm) circle(1cm);
+
+        \foreach \x in {0,30,...,360} {
+                % lines from center to point
+                \draw[gray] (0cm,0cm) -- (\x:1cm);
+                % dots at each point
+                \filldraw[black] (\x:1cm) circle(0.4pt);
+                % draw each angle in degrees
+                \draw (\x:0.6cm) node[fill=white] {$\x^\circ$};
+        }
+
+        % draw each angle in radians
+        \foreach \x/\xtext in {
+            30/\frac{\pi}{6},
+            45/\frac{\pi}{4},
+            60/\frac{\pi}{3},
+            90/\frac{\pi}{2},
+            120/\frac{2\pi}{3},
+            135/\frac{3\pi}{4},
+            150/\frac{5\pi}{6},
+            180/\pi,
+            210/\frac{7\pi}{6},
+            225/\frac{5\pi}{4},
+            240/\frac{4\pi}{3},
+            270/\frac{3\pi}{2},
+            300/\frac{5\pi}{3},
+            315/\frac{7\pi}{4},
+            330/\frac{11\pi}{6},
+            360/2\pi}
+                \draw (\x:0.85cm) node[fill=white] {$\xtext$};
+
+        \foreach \x/\xtext/\y in {
+            % the coordinates for the first quadrant
+            30/\frac{\sqrt{3}}{2}/\frac{1}{2},
+            45/\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},
+            60/\frac{1}{2}/\frac{\sqrt{3}}{2},
+            % the coordinates for the second quadrant
+            150/-\frac{\sqrt{3}}{2}/\frac{1}{2},
+            135/-\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},
+            120/-\frac{1}{2}/\frac{\sqrt{3}}{2},
+            % the coordinates for the third quadrant
+            210/-\frac{\sqrt{3}}{2}/-\frac{1}{2},
+            225/-\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},
+            240/-\frac{1}{2}/-\frac{\sqrt{3}}{2},
+            % the coordinates for the fourth quadrant
+            330/\frac{\sqrt{3}}{2}/-\frac{1}{2},
+            315/\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},
+            300/\frac{1}{2}/-\frac{\sqrt{3}}{2}}
+                \draw (\x:1.25cm) node[fill=white] {$\left(\xtext,\y\right)$};
+
+        % draw the horizontal and vertical coordinates
+        % the placement is better this way
+        \draw (-1.25cm,0cm) node[above=1pt] {$(-1,0)$}
+              (1.25cm,0cm)  node[above=1pt] {$(1,0)$}
+              (0cm,-1.25cm) node[fill=white] {$(0,-1)$}
+              (0cm,1.25cm)  node[fill=white] {$(0,1)$};
+    \end{tikzpicture}
+\end{center}
 
 
 \end{document}
