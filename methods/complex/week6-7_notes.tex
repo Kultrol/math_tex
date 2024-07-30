@@ -233,7 +233,7 @@ Where $z_0$ is the center of the circle and $r$ the radius. From this, we can de
 	    |z-z_0| = re^{i \theta}
     \end{aligned}
 \end{equation}
-Where $\theta$ is from $0$ to $2\pi$.The differential of this definition of $z$ is $dz = rie^{i \theta}$, where r is constant. This is useful for contour integrals involving a circle/arc/semicircle.  
+Where $\theta$ is from $0$ to $2\pi$.The differential of this definition of $z$ is $dz = rie^{i \theta}d \theta$, where r is constant. This is useful for contour integrals involving a circle/arc/semicircle.  
 
 Example:
 \\\textbf{Sketch $z-z_0 = e^{i \theta}$, $\theta \in [0,2\pi)$ on the complex plane and fill in the blank:} 
@@ -456,93 +456,130 @@ We will show the usage of the concepts by the solutions provied for each complex
 		\begin{enumerate}
 
 		\item The module($|z| = r$) of $e^{i0.123456788}$ is \_\_?
-			\begin{equation*}
-				    |e^{i0.123456788}| = 1
-			\end{equation*}
+			\begin{align*}
+				    |e^{i0.123456788}| = re^{i \theta} = z = 1
+			\end{align*}
 		\item Find the values of: $sin(30)$, $cos(45)$, $tan(120)$ - exact answers only.
 		\begin{equation*}
-			sin(30^{\circ}) = 1
+			sin(30^{\circ}) = \frac{1}{2} 
 		\end{equation*}	
 
 		\begin{equation*}
-			cos(45^{\circ}) = \frac{\sqrt{2}}{2}	
+			cos(45^{\circ}) = \frac{\sqrt{2}}{2} = \frac{1}{\sqrt{2}}	
 		\end{equation*}	
 
 		\begin{equation*}
-			tan(120^{\circ}) = \sqrt{3}
+			tan(120^{\circ}) = -\sqrt{3}
 		\end{equation*}	
 
 
-		\item Sketch a triangle with three sides lengths of 3, 4, and 5 respectively. Note all angles are to be represented as integers approximations. 
-			
+		\item Sketch a triangle with three sides lengths of 3, 4, and 5 respectively. Note all angles are to be represented as integers approximations. \\
+			Angles are: $90^{\circ}, 53^{\circ}, 37^{\circ}$
 		\item Sketch a complex plane - $z=x+iy=re^{i\theta}$, and $z^{*}a$, $z^{2}$, $z^{\frac{1}{2}}$. All should be sketched on the same plane with all variables noted properly (assume $r > 1$)
-
-\begin{center}
-\begin{tikzpicture}
-    % Draw axes
-    \draw[thin,->] (-2,0) -- (4,0) node[anchor=north west] {$\Re$};
-    \draw[thin,->] (0,-2) -- (0,4) node[anchor=south east] {$\Im$};
-    
-    % Define z = x + iy = re^{i\theta}
-    \def\r{2.5} % r > 1
-    \def\angle{40} % Angle theta
-    \pgfmathsetmacro{\x}{\r*cos(\angle)} % Real part of z
-    \pgfmathsetmacro{\y}{\r*sin(\angle)} % Imaginary part of z
-    
-    % Draw z
-    \draw[thick,->] (0,0) -- (\x,\y) node[midway,above] {$z$};
-    \draw[red,thick,dashed] (\x,0) -- (\x,\y) node[midway,right] {$iy$};
-    \draw[red,thick,dashed] (0,\y) -- (\x,\y) node[midway,above] {$x$};
-    
-    % Draw z conjugate
-    \draw[thick,->,blue] (0,0) -- (\x,-\y) node[midway,below] {$z^*$};
-    
-    % Angle theta
-    \draw[thick] (1,0) arc (0:\angle:1) node[midway,right] {$\theta$};
-    
-    % Draw z^2 and z^(1/2) approximately, for demonstration
-    % Assuming r > 1, z^2 will be further out and z^(1/2) closer to the origin
-    \pgfmathsetmacro{\rSquared}{\r*\r}
-    \pgfmathsetmacro{\rSqrt}{sqrt(\r)}
-    \pgfmathsetmacro{\xSquared}{\rSquared*cos(2*\angle)}
-    \pgfmathsetmacro{\ySquared}{\rSquared*sin(2*\angle)}
-    \pgfmathsetmacro{\xSqrt}{\rSqrt*cos(\angle/2)}
-    \pgfmathsetmacro{\ySqrt}{\rSqrt*sin(\angle/2)}
-    
-    % Draw z^2
-    \draw[thick,->,green] (0,0) -- (\xSquared,\ySquared) node[near end,above left] {$z^2$};
-    
-    % Draw z^(1/2)
-    \draw[thick,->,purple] (0,0) -- (\xSqrt,\ySqrt) node[near end,below right] {$z^{1/2}$};
-    
-    % Labels
-    \node at (\x/2,-0.3) {$r$};
-\end{tikzpicture}
-\end{center}
-		
 		\end{enumerate}
 
 
 	\item 
 		\begin{enumerate}
 
-		    	\item Given $z=3+4i$. Determine the polar form of $z$, $z^{*}$, $\frac{1}{z}$, and $z^{n}$.  Both $a$ and $b$ are real constants. 
+		    	\item Given $z=3+4i$. Determine the polar form of $z$, $z^{*}$, $\frac{1}{z}$, and $z^{n}$.  Both $a$ and $b$ are real constants.
+				\begin{align*}
+					z &= 3+4i \quad z^{*}=3-4i\\
+					\frac{1}{z}&=\frac{1}{3+4i}=\frac{1(3-4i)}{(3+4i)(3-4i)}=\frac{3-4i}{25}
+				\end{align*}
+				\begin{enumerate}
+				    \item Polar Form of $z=3+4i$
+					    \begin{align*}
+						    \phi &= arctan(\frac{4}{3}) = 0.927\\
+						    |z|&=r=5\\
+						    z&=5e^{i0.927}
+					    \end{align*}
+
+					\item Polar Form of $\frac{1}{z}=\frac{3-4i}{25}$
+						\begin{align*}
+						    \frac{1}{z}=\frac{1}{5}e^{-i0.927}
+						\end{align*}
+
+					\item Polar Form of $z^{*} = 3-4i$
+						\begin{align*}
+						    z^{*}=5e^{-i0.927}
+						\end{align*}
+
+					\item Polar Form of $z^{n}=(3+4i)^{n}$
+						\begin{align*}
+						    z^{n}=5^{n}e^{i0.927n}
+						\end{align*}
+				\end{enumerate}
 
 			\item Given $z=a+ib$. Determine the polar form of $z$, $z^{*}$, $\frac{1}{z}$, and $z^{n}$.  Both $a$ and $b$ are real constants. 	
-
-		\item $z = \frac{1}{\sqrt{2}} + \frac{1}{{\sqrt{2}}}i$. Determine ($\frac{1}{z^{*}}$) in polar forms and sketch your results in the complex plane. Describe how these results are arranged on the complex plane in words.
+				\begin{enumerate}
+					\item Polar Form of $z^{*}=a-ib$
+						\begin{align*}
+						    z^{*}=\sqrt{a^{2}+b^{2}}e^{i(tan^{-1}(\frac{-b}{a}))}
+						\end{align*}
+					\item Polar Form of $z^{n}$
+						\begin{align*}
+						    z^{n}=(\sqrt{a^{2}+b^{2}})^{n}e^{in(tan^{-1}\frac{-b}{a})}
+					\end{align*}
+					\item Polar Form of $\frac{1}{z}$
+						\begin{align*}
+						    \frac{1}{z}=(a^{2}+b^{2})^{\frac{-1}{2}}e^{i(tan^{-1}(\frac{b}{a}))}
+						\end{align*}
+				\end{enumerate}
+		\item $z = \frac{1}{\sqrt{2}} + \frac{1}{{\sqrt{2}}}i$. Determine ($\frac{1}{z^{*}}$) in polar forms and sketch your results in the complex plane. Describe how these results are arranged on the complex plane in words.\\
+			\textbf{Polar Form} $(\frac{1}{z^{*}})^{\frac{1}{4}}$
+			\begin{align*}
+				arctan(\frac{\frac{-1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}})&=\frac{\pi}{4}z^{*}=(\sqrt{\frac{1}{2}+\frac{1}{2}})e_{-i \frac{\pi}{4}} = e^{-i \frac{\pi}{4}}\\
+				(\frac{1}{z^{*}})^{\frac{1}{4}}&=(\frac{1}{e^{-i \frac{\pi}{4}}})^{\frac{1}{4}}=(e^{i \frac{\pi}{4}})^{\frac{1}{4}}=e^{i \frac{\pi}{16}+ \frac{k\pi}{2}}\\
+							       &\text{where, k = 0,1,2,3}
+			\end{align*}
+			These results look like this since the conjugate being in the fraction makes it positive $i$ rather than $-i$, making it an angle of $\frac{\pi}{16}$ above the x-axis.
 		\end{enumerate}
 		
 	\item 
 		\begin{enumerate}
-
 		    \item $z=1+2i$, compute $\frac{z-2z^{*}}{2z+z^{*}}$ and $z^{\frac{1}{3}}$, the sketch all results on the complex plane.
-
+			    \begin{align*}
+				    \frac{(1+2i)-2(1-2i)}{2(1+2i)+(1-2i)} &= \frac{1+2i-24i}{2+4i+1-2i}=\frac{-1+6i}{3+2i}\frac{(3-2i)}{(3-2i)}\\
+									  &= \frac{-3+2i+18i+12}{9+4} = \frac{9+20i}{13}
+			    \end{align*}
+			    \begin{align*}
+				    tan^{-1}(\frac{2}{1})&=63.44^{\circ}\\
+				    z^{\frac{1}{3}}&=(\sqrt{5})^{\frac{1}{3}}e^{i \frac{63.44^{\circ}}{3}}=(5)^{\frac{1}{6}}e^{i21.14^{\circ}+k120^{\circ}}\\
+				    \text{where $k =0,1,2$}
+			    \end{align*}
 		\item Sketch, on the complex plane, a circle of radius $R=5$ centered at $z_{0} = 2 +i$. Define this circle using the polar form.
+			
+		\begin{align*}
+			z_{0}&=z+i\\
+			|z-z_{0}|&=R\rightarrow |z-2i|=5\\
+			z&=z_{0}+Re^{i \theta}\\
+			z&=(2+i)+5^{i \theta}, \quad 0 \leq \theta < 2\pi
+		\end{align*}
 
 
 		\item $f(z) = e^{z}$. Is it analytic?
+			\begin{align*}
+				z&=x+iy, \quad e^{z}=e^{x+iy}=e^{x}e^{iy}\\
+				f(z)&=e^{x}(cos(y)+isin(y))
+			\end{align*}
+			\begin{align*}
+				u(x,y) = e^{x}cos(y) & \quad v(x,y)=e^{x}sin(y)\\
+				\pdv{u}{x}=e^{x}cos(y) &\quad \pdv{v}{x}=e^{x}sin(y)\\
+				\pdv{u}{y}=-e^{x}sin(y) &\quad \pdv{v}{y}=e^{x}cos(y)
+			\end{align*}
 
+			For Analytic
+			\begin{align*}
+				\pdv{u}{x}&=\pdv{v}{y}\\
+				\pdv{u}{y}&=-\pdv{v}{x}
+			\end{align*}
+			This is true since
+			\begin{align*}
+				\pdv{u}{x}&=\pdv{v}{y}=e^{x}cos(y)\\
+				\pdv{u}{y}&=-\pdv{v}{x}=-e^{x}sin(y)
+			\end{align*}
+			Therefore $f(z)=e^{z}$ is analytic.
 		\end{enumerate}
 
 
@@ -551,21 +588,89 @@ We will show the usage of the concepts by the solutions provied for each complex
 		\begin{enumerate}
 
 		    \item If $v(x,y) = 3x^{2} y-y^{3}$, determine $u(x,y)$ first, then determine $f(z)$ directly in terms of z (the expression should not include x or y), using Cauchy-Riemann relations. If there is any overall integration constant, set it to be equal to $0$.
-
+			    \begin{align*}
+				    \pdv{v}{y}&=\pdv{u}{x}=3x^{2}-3y^{2}=\pdv{u}{x}\\
+				    -\pdv{v}{x}&=\pdv{u}{y}=-(-6xy)=6xy-6xy=\pdv{u}{y}\\
+				    \int(3x^{2}-3y^{2})dx&=x^{3}-3xy^{2}\\
+				    u(x,y)&=x^{3}-3xy^{2}\\
+				    f(z)&=x^{3}-3xy^{2}+i(3x^{2}y-y^{3})=(x+iy)^{3}\\
+					&=z^{3}
+			    \end{align*}
 		\item For part a) function, along the curved path connecting point $A$ at origin and $B$ at $(1+i)$: $\int_{A}^{B}f(z)dz=$?
-
+			\begin{align*}
+				\int_{0}^{1+i}f(z)dz = \int_{0}^{1+i}z^{3}dz = \frac{1}{4}(1+i)^{4} = -1
+			\end{align*}
 		\item Similarly, if $u(x,y) = (xcos(y)-ysin(y))e^{x}$, determine if $v(x,y)$ first then $f(z)$ directly in terms of $z$.
+			\begin{align*}
+				u(x,y)&=e^{x}xcos(y)-e^{x}ysin(y)\\
+				\pdv{u}{x}&=e^{x}cos(y)+xe^{x}cos(y)-e^{x}ysin(y)=\pdv{v}{y}\\
+				v&=e^{x}\int(cos(y)+xcos(y)-ysin(y))dy\\
+				v&=e^{x}[sin(y)+xsin(y)-(-ycos(y)+sin(y))]\\
+				v&=e^{x}[xsin(y)+ycos(y)]
+			\end{align*}
+			\begin{align*}
+				f(z)&=u+iv\\
+				    &=e^{x}(xcos(y)-ysin(y))+ie^{x}(xsin(y)+ycos(y))\\
+				    &=e^{x}[xcos(y)-ysin(y)+ixsin(y)+iycos(y)]\\
+				    &=e^{x}[(x+iy)cos(y)+isin(y)(x+iy)]\\
+				    &=e^{x}(x+iy)(cos(y)+isin(y))\\
+				    &=e^{x+iy}(x+iy)\\
+				f(z)&=ze^{z}
+			\end{align*}
 		\end{enumerate}
 
 	\item 
-		For $f(z) = z^{n}$, determine the contour integral $\oint f(z)dz$ following the rectangular path $(a,b) -> (-a,b) -> (a,-b) -> (a,b) $ in the complex plane. Both a and b are positive real constants.
+		For $f(z) = z^{n}$, determine the contour integral $\oint f(z)dz$ following the rectangular path $(a,b) \rightarrow (-a,b) \rightarrow (a,-b) \rightarrow (a,b) $ in the complex plane. Both a and b are positive real constants.
 		\begin{enumerate}
-
 		    \item Sketch the path on the complex plane first and then define $z$ and $dz$ on each of the four
-
+			    \begin{align*}
+				    \int_{a}^{-a}f(z)dz&=\int_{a}^{-a}z^{n}dz=\int_{a}^{-a}(x+ib)^{n}dx \rightarrow -\int_{-a}^{a}(x+ib)^{n}dx\\
+						       &\text{For $x \in (-a,a)$} \qquad z=x+ib \qquad dz=dx\\
+				    =&\int_{-a}^{a}(x-ib)^{n}dx
+			    \end{align*}
+			    \begin{align*}
+				    &\text{For $y\in(-b,b)$}\\
+				    \int_{b}^{-b}f(z)dz&=\int_{b}^{-b}(-a+iy)^{n}iy=-\int_{-b}^{b}(-a+iy)^{n}idy\\
+						       &= \int_{-b}^{b}(a+iy)^{n}idy\\
+						       &z=-a+iy \qquad dz=idy
+			    \end{align*}
 		\item $\oint f(z)dz=$?
-
+			\begin{align*}
+				\oint f(z)dz&= -\int_{-a}^{a}(x+ib)^{n}dx+\int_{-a}^{a}(x-ib)^{n}dx\\
+					    &-\int_{-b}^{b}(-a+iy)^{n}idy+\int_{-b}^{b}(a+iy)^{n}idy\\
+					    &=[\frac{-1}{n+1}((a+ib)^{n+1}-(-a+ib)^{n+1})]\\
+					    &+[\frac{1}{n+1}(a-ib)^{n+1}-(-a-ib)^{n+1}]\\
+					    &-\frac{i[\frac{1}{n+1}(-a+ib)^{n+1}-(-a-ib)^{n+1}]}{i}\\
+					    &+\frac{i[\frac{1}{n+1}(a+ib)^{n+1}-(a-ib)^{n+1}]}{i}\\
+					    &=\frac{1}{n+1}[-(a+ib)^{n+1}+(-a+ib)^{n+1}+(a-ib)^{n+1}-(-a-ib)^{n+1}\\
+					    &-(-a+ib)^{n+1}+(a+ib)^{n+1}-(a-ib)^{n+1}]\\
+					    &=\frac{1}{n+1}(0)=0
+			\end{align*}
+			$n=-1$
+			\begin{align*}
+			        {z_{1}\rightarrow z_{2}: x=a\rightarrow -a, y \equiv b} = \begin{cases}
+			        {z=x+ib}, & \\
+				\rightarrow{f(z)=z^{-1}=\frac{x-iy}{x^{2}+y^{2}}=\frac{x-ib}{x^{2}+b^{2}}}\\
+			        {dz=dx}
+			   \end{cases} 
+			\end{align*}
+\begin{align*}
+			        {z_{2}\rightarrow z_{3}, x=-a, y=b\rightarrow -b} = \begin{cases}
+			        {z=-a+iy}, & \\
+				\rightarrow{f(z)=\frac{-a-iy}{a^{2}+y^{2}}}\\
+			        {dz=idy}
+			   \end{cases} 
+			\end{align*}
 		\end{enumerate}
+
+		\begin{align*}
+			\oint z^{n}dz &\rightarrow \int_{a}^{-a}\frac{x-ib}{x^{2}+b^{2}}dx |_{z_{1}\rightarrow z_{2}} + \int_{b}^{-b}\frac{a-iy}{a^{2}+y^{2}}idy |_{z_{2}\rightarrow z_{3}}\\
+		    &+\int_{-a}^{a}\frac{x-ib}{x^{2}+b^{2}}dx |_{z_{3}\rightarrow z_{4}}+\int_{-b}^{b}\frac{a-iy}{a^{2}+y^{2}}idy |_{z_{4}\rightarrow z_{1}}\\
+		    &=2ib \int_{-a}^{a}\frac{1}{x^{2}+b^{2}}dx+2ia \int_{-b}^{b}\frac{1}{a^{2}+y^{2}}dy\\
+		    &\text{Let $\frac{x}{b}=u, \frac{y}{a}=v$}\\
+		    &=2i[tan^{-1}u|^{\frac{a}{b}}_{\frac{-a}{b}}+tan^{-1}v|^{\frac{b}{a}}_{\frac{-b}{a}}]=4i[tan^{-1}(\frac{a}{b})+tan^{-1}(\frac{b}{a})]\\
+		    &=4i \cdot \frac{\pi}{2}=2\pi i, \quad for \rightarrow \quad n =-1
+		\end{align*}
 	
 	\item
 		Consider two paths: $C1:(0,0) -> (1,0) -> (1,1)$, and $C2: (0,0) -> (0,1) -> (1,1)$ in the ocmplex plane.
@@ -573,9 +678,19 @@ We will show the usage of the concepts by the solutions provied for each complex
 
 		    \item 
 			    $f(z)=z^{2}$; Determine $\oint f(z)dz$ along $C1$ and $C2$; Are the results the same for both paths?
-
+\begin{align*}
+	\int_{c_{1}}z^{2}dz &= \int_{0}^{1}(x+i0)^{2}dx |_{z_{1}\rightarrow z_{2}} + \int_{0}^{1}(1+iy)^{2}idy |_{z_{2}\rightarrow z_{3}}\\
+			    &=\int_{0}^{1}x^{2}dx + \int_{0}^{1}(1-y^{2}+2iy)idy = \frac{2}{3}(-1+i)\\
+			    \int_{c_{2}}z^{2}dz &=\int_{0}^{1}(0+iy)^{2}idy|_{z_{1}\rightarrow z_{4}}+\int_{0}^{1}(x+i)^{2}dx=\frac{2}{3}(-1+i)
+\end{align*}
+Both are the same since $\oint$ between $2$ points will alwyas be the same no matter the path if it is a closed loop.
 		\item $f(z)=z^{*}$; Determine $\oint f(z)dz$ along $C1$ and $C2$; Are the results the same for both paths?
-
+			\begin{align*}
+				\int_{c_{1}}z^{*}dz&= \int_{0}^{1}(x-i0)dx+\int_{0}^{1}(1-iy)idy\\
+				\int_{0}^{1}xdx &+ \int_{0}^{1}(1-iy)idy=1+i\\ 
+				\int_{c_{2}}z^{*}dx &= \int_{0}^{1}(0-iy)idy+\int_{0}^{1}(x-i)dx = \int_{0}^{1}ydy+\int_{0}^{1}(x-i)dx=1-i
+			\end{align*}
+			The results are not the same since $z^{*}$ is not analytic.
 		\end{enumerate}
 
 	\item Use Cauchy's integral theorems (and/or the extensions) to compute the following(for any closed contour around $z_{0} = i$).
@@ -586,9 +701,35 @@ We will show the usage of the concepts by the solutions provied for each complex
           ?, & n \neq -1 \\
           ? & n = -1 \\
   \end{cases} $
-
+  \begin{enumerate}
+      \item At $z \geq 0 (z-z_{0})^{n}$ is analytic with no poles.
+	      \begin{align*}
+	          \oint(z-z_{0})^{n}dz = 0
+	      \end{align*}
+	\item At $n=1$
+		\begin{align*}
+			\oint(z-z^{0})^{n}dz=\oint \frac{1}{(z-z^{0})^{n}}dz=f(z)|_{z_{1}=i} \cdot 2\pi i
+		\end{align*}
+	\item At $n < -1$
+		\begin{align*}
+			\oint \frac{1}{(z-z_{0})^{n}}dz &= \frac{2\pi i}{(n-1)!}f(z_{0})= \oint(z-z_{0})^{n}dz\\
+							&= \begin{cases}
+							     {2\pi i}, & {n=-1}\\
+							     {0}, & {n \neq -1}
+							\end{cases}
+		\end{align*}
+  \end{enumerate}
   \item $\oint \frac{e^{z}+iz^{2}}{z-z_{0}}dz$
+	  \begin{align*}
+		  \oint \frac{e^{z}+iz^{2}}{z-z_{0}}dz &= (e^{z}+iz^{2})|_{z=i}=e^{i}+i \cdot (i^{2})=e^{i}-i\\
+						       &=cos(1)+isin(1)-1
+	  \end{align*}
 	  \item $\oint \frac{e^{z}+iz^{2}}{(z-z_{0})^{3}}dz$
+		  \begin{align*}
+			  \oint \frac{e^{z}+iz^{2}}{(z-z_{0})^{3}}dz \rightarrow \frac{2\pi i}{(3-1)!} \cdot \frac{d^{3-1}(e^{2}+iz^{2})}{dz^{3-1}}|_{z=i} &=\pi i(e^{z}+2i)|_{z=i}\\
+			  &=\pi i(e^{i}+2i)\\
+			  &=-2\pi +i\pi e^{i}
+		  \end{align*}
     
 
 		\end{enumerate}
@@ -602,46 +743,143 @@ We will show the usage of the concepts by the solutions provied for each complex
 	    Determain, without a calculator, the modules for the following complex numbers: 
 	    \begin{enumerate}
 
-	        \item $e^{ilog(e+\theta)}$
-		\item $(e^{i0.123456788 \pi})^{2}$
+	        \item $e^{ilog(e+\theta)}=|e^{ilog(e+\pi)}|=1$
+		\item $(e^{i0.123456788 \pi})^{2}=|(e^{i0.123456788 \pi})^{2}|=1$
 		\item $e^{iz}$, $z=x+iy$ ($x,y$ are real) 
+			\begin{align*}
+			    |e^{iz}|=|e^{i(x+iy)}|=|e^{-y}e^{ix}|=e^{-y}
+			\end{align*}
 		\item $(re_{-i \theta})^{n}$, $(n,r,\theta$ are all real and positive $)$
+			\begin{align*}
+			    |(re^{i \theta})|=r^{n}
+			\end{align*}
 
 	    \end{enumerate}
 	
 	\item Consider $f(z) = \frac{e^{iz}}{z}$. Determine $\lim_{r\to0} \int_{-r}^{r}f(z)dz$ along the small semicircle shown below, in counterclockwise direction.
-	
+		\begin{align*}
+		    \lim_{r\rightarrow 0} \int_{-r}^{r}\frac{e^{iz}}{z}dz= \lim_{r\rightarrow 0}\int_{\pi}^{2\pi}\frac{e^{iz}}{re^{i \theta}}rie^{i \theta} d \theta=i\pi
+		\end{align*}
 	\item $f(z)=\frac{e^{iz}-2}{z}$; Determine $\lim_{r\to0}\int_{A}^{B}f(z)dz$ along the arc indicated:
+		\begin{align*}
+		    \lim_{r\rightarrow 0}\int_{\frac{3\pi}{4}}^{\frac{\pi}{4}}\frac{e^{iz}-2}{re^{i \theta}}rie^{i \theta} d \theta= \lim_{r\rightarrow 0}-i \int_{\frac{3\pi}{4}}^{\frac{\pi}{4}}d \theta= -i(-\frac{\pi}{2})=i \frac{\pi}{2}
+		\end{align*}
 
 	\item Consider the real function $f(x)= \frac{x^{2}}{(4+x^{2})^{2}}$ and its extension in to the complex plane.
 		\begin{enumerate}
 
 		    \item Determine the poles of $f(z)$ and indicate the order of the poles.
+			    			    \begin{align*}
+				    k=2, \qquad 4+x^{2}&=0\\
+				    x^{2}&=-4\\
+				    x&=\pm 2i
+			    \end{align*}
+			    Pole at $+2i$, 2nd order.
 			    \item Sketch an appropriate contour that you want to use to determine $\int_{\infty}^{\infty} \frac{x^{2}}{(4+x^{2})^{2}}dx$ and indicate the locations of the poles. Explain how each part of the contour contribute or does not contribute to the integral, and how they are related to $\int_{\infty}^{\infty} \frac{x^{2}}{(4+x^{2})^{2}}dx$
+				    \begin{align*}
+				        \oint f(z)dz= \int_{straight-line} \frac{x^{2}}{(4+x^{2})^{2}}dz+ \int_{curve}\frac{z^{2}}{(4+z^{2})^{2}}dz
+				    \end{align*}
 
 		\item Determine $\int_{\infty}^{\infty} \frac{{x^{2}}(4+x^{2})^{2}}dx$
-
+			\begin{align*}
+				f(z)=\frac{z^{2}}{(z-2i)^{2}(z+2i)^{2}}
+			\end{align*}
+			\begin{align*}
+			    k=2,\quad z_{0}=z_{i},\quad R=b_{-1}
+			\end{align*}
+			\begin{align*}
+				R&=\frac{1}{(k-1)!}\frac{d^{(k-1)}}{dz^{(k-1)}}((z-z_{0})^{k}\cdot f(z))\\
+				 &=\frac{1}{(z-1)!}\cdot \frac{d}{dz}((z-z_{i})^{2}\cdot \frac{z^{2}}{(z-z_{i})^{2}(z+2i)^{2}})=\frac{d}{dz}(\frac{z^{2}}{(z+z_{i})^{2}})|_{z=2i}\\
+				 &=\frac{2z}{(z+2i)^{2}}-\frac{2z^{2}}{(z+2i)^{3}}|_{z=2i}=\frac{2(2i)}{(2i+2i)^{2}}-\frac{2(2i)^{2}}{(2i+2i)^{3}}\\
+				 &=\frac{4i}{(4i)^{2}}-\frac{2 \cdot 4i^{2}}{(4i)^{3}}=\frac{4i}{-16}-\frac{-8}{64i^{3}}=\frac{-i}{4}-\frac{1}{8i}\cdot \frac{i}{i}\\
+				 &=\frac{-i}{4}+\frac{i}{8}=\frac{-i}{8}=\frac{1}{8i}\\
+				 &\rightarrow 2\pi i(R_{2i})=\frac{2\pi i}{8i}= \frac{\pi}{4}
+			\end{align*}
 		\end{enumerate}
 
 \item Consider the real function $f(x)= \frac{x^{2}}{(1+x^{4})}$ and its extension into the complex plane.
 	\begin{enumerate}
 
 	    \item Determine the simple poles of $f(z)$
+		    \begin{align*}
+			f(z)&=\frac{z^{2}}{(1+z^{4})}\\
+			z^{4}&=-1\\
+			z&=(-1)^{\frac{1}{4}}\\
+			&=e^{i \frac{\pi}{4}}, e^{i \frac{3\pi}{4}}, e^{i \frac{5\pi}{4}}, e^{i \frac{7\pi}{4}}
+		\end{align*}
 	\item Use the residue theorem to determine $\int_{\infty}^{\infty} f(x)dx$ using a contour that include the real axis and the upper semicirle with a radius $R \to \infty$
-	
-	\item Repeat part b), but use a new contour(there is more than one choice) that involves both real and imaginary axes. Your contour cannot have a semicircle.
-
+		\begin{align*}
+			R&= \frac{h(z)}{g'(z)}|_{z}=\frac{z^{2}}{4z^{3}}\\
+			R_{1}|_{z_{1}=e^{i \frac{\pi}{4}}} &= \frac{e^{i \frac{\pi}{2}}}{4e^{i \frac{2\pi}{4}}}=\frac{1}{4}e^{-i \frac{\pi}{4}}\\
+			R_{2}|_{z_{2}=e^{i \frac{3\pi}{4}}}&=\frac{e^{i \frac{6\pi}{4}}}{4e^{i \frac{9\pi}{4}}} = \frac{1}{4}e^{-i \frac{3\pi}{4}}
+		\end{align*}
+		\begin{align*}
+			\int_{-R}^{R}f(x)dx+\int_{curve}f(z)dz &= 2\pi(R)+0\\
+							       &=2\pi i \cdot (\frac{1}{4})\cdot (e^{-i \frac{\pi}{4}}+e^{-i \frac{3\pi}{4}})\\
+							       &= \frac{\pi i}{2}(cos(\frac{\pi}{4})-isin(\frac{\pi}{4})+cos(\frac{3\pi}{4})-isin(\frac{3\pi}{4}))\\
+							       &=\frac{\pi i}{2}\cdot (\frac{\sqrt{2}}{2}-i \frac{\sqrt{2}}{2}+(-\frac{\sqrt{2}}{2}-i \frac{\sqrt{2}}{2}))\\
+							       &= \frac{\pi i}{2}(-i\sqrt{2})=\frac{\pi \sqrt{2}}{2}
+		\end{align*}
+			\item Repeat part b), but use a new contour(there is more than one choice) that involves both real and imaginary axes. Your contour cannot have a semicircle.
+	\begin{align*}
+		\oint f(z)dz &= \int_{straight-line} \frac{x^{2}}{x^{4}+1}dx-i\int \frac{z^{2}}{z^{4}+1}dz+\int_{curve} \frac{z^{2}}{z^{4}+1}dz\\
+			     &= 2\pi i(\sum R) - 2\pi i(\sum R)=0
+	\end{align*}
+	Root in Contour: $z=e^{i \frac{\pi}{4}}$
+	\begin{align*}
+	  R_{1}=\frac{z^{2}}{4z^{3}}\rightarrow \frac{1}{4}e^{-i \frac{\pi}{4}}  
+	\end{align*}
+	Then,
+	\begin{align*}
+		\oint f(z)dz &= \frac{\pi i}{2}(cos(\frac{\pi}{4})-isin(\frac{\pi}{4}))-i(\frac{\pi i}{2}(cos(\frac{\pi}{4})-isin(\frac{\pi}{4})))+0\\
+			     &=\frac{\pi i}{2}(\frac{\sqrt{2}}{2}-i \frac{\sqrt{2}}{2})+\frac{\pi}{2}(\frac{\sqrt{2}}{2}-i \frac{\sqrt{2}}{2})\\
+			     &= \frac{\pi i \sqrt{2}}{4}+\frac{\pi \sqrt{2}}{4}+ \frac{\pi \sqrt{2}}{4} - \frac{\pi i \sqrt{2}}{4}\\
+			     &=\frac{\pi \sqrt{2}}{2}
+	\end{align*}
 	\item Repeat part b), but use a different semicircle that only involves that imaginary axis, not the real one.
-
+\begin{align*}
+			        \oint f(z)dz=-i \int_{vertical_line}\frac{z^{2}}{z^{4}+1}dz+\int_{curve}\frac{z^{2}}{z^{4}+1}dz
+			    \end{align*}
+		\begin{align*}
+		    R&= \frac{z^{2}}{4z^{2}}, \qquad R_{1}= \frac{1}{4}e^{-i \frac{7\pi}{4}}\\
+		    R_{2}&=\frac{e^{i \frac{14\pi}{4}}}{4e^{\frac{21\pi}{4}}}=\frac{7}{4}e^{-i \frac{7\pi}{4}}
+		\end{align*}
+		\begin{align*}
+		    \oint f(z)dz=-i(\frac{\pi i}{2}(cos(\frac{\pi}{4})-isin(\frac{\pi}{4})+cos(\frac{7\pi}{4})-isin(\frac{7\pi}{4})))= \frac{\pi \sqrt{2}}{2}
+		\end{align*}
 	\end{enumerate}
 
 	\item Consider the real function $f(x) = \frac{sin^{2}(x)}{x^{2}}$ and its extention into the complex plane. Note $sin^{2}(x) = \frac{1-cos(2x)}{2}$, and replace $cos(2x)$ with $e^{i2z}, x^{2}$ with $z^{2}$
 		\begin{enumerate}
 
+
 		    \item Determine the residue of the double(not simple) pole of f(z) at z=0
+			    \begin{align*}
+			        f(z)=\frac{1-e^{i2z}}{2z^{2}} \qquad 2z^{2}=0
+			    \end{align*}
+			    \begin{align*}
+				    R&=\frac{1}{(2-1)!}\cdot \frac{d^{(2-1)}}{dz^{(2-1)}}(z^{2}\cdot 1-\frac{e^{i2z}}{2z^{2}})|_{z=0}\\
+				     &=\frac{d}{dz}(\frac{1}{2}-\frac{e^{i2z}}{2})|_{z=0}=-ie^{i2z}|_{z=0} = -i
+			    \end{align*}
+			
 		\item Determine $\int_{\infty}^{\infty} f(z)dz$ - Cauchy's integration theorem and residue theorem are needed, and symmetry consideration (Hint: Choose a contour that includes the real axis and the upper semicircle with a radius $R \to \infty$. However, since the pole is on the real axis, you need to come up with another small upper semicircle around the pole to get around it)
-
-
+			\begin{align*}
+				\oint f(z)dz&=\oint \frac{1-e^{i2z}}{2z^{2}}dz+\int_{-r}^{r}\frac{1-e^{i2z}}{2z}dz+\int_{r}^{R}\frac{1-e^{i2z}}{2z^{2}}dz+\int_{R}^{-R}\frac{1-e^{i2z}}{2z^{2}}dz\\
+					    &= \int_{-R}^{-r}\frac{1-cos(2x)}{2z^{2}}-\frac{sin(2z)}{2z^{2}}dz+\int_{r}^{R}\frac{1-cos(2z)}{2z^{2}}-\frac{sin(2z)}{2z^{2}}dz\\
+					    &+\int_{-r}^{r}\frac{1-e^{i2z}}{2z^{2}}dz+\int_{R}^{-R}\frac{1-e^{i2z}}{2z^{2}}dz\\
+			&= \int_{\infty}^{\infty}\frac{1-cos(2x)}{2x^{2}}dx+\int_{-r}^{r}\frac{1-e^{i2z}}{z}dz+\int_{R}^{-R}\frac{1-e^{i2z}}{z}dz\\
+			\end{align*}	
+			\begin{align*}
+	\oint f(z)dz&=0=\int_{\infty}^{\infty}f(x)dx+\lim_{r\rightarrow \inf}\oint f(z)dz + \lim_{r\rightarrow 0}\oint f(z)dz\\
+			\end{align*}
+			\begin{align*}
+				\lim_{r\rightarrow 0}\oint \frac{1-e^{2z}}{2r2e^{i2 \theta}}rie^{i \theta} d\theta &= \lim_{r\rightarrow 0}\oint \frac{-(i2z)}{2rr^{2}e^{i2 \theta}}= -i2re^{i \theta} rie^{i \theta}d \theta\\
+														   &= \lim_{r\rightarrow 0}\oint \frac{-(i2z)}{1}=-i i d \theta = \lim_{r\rightarrow0}\int_{\pi}^{0}d \theta = -\pi
+			\end{align*}
+			Use the taylor series or L^hopialts rule to solve for $1-e^{i2z}=-i2z$ for $r\rightarrow 0$, and $ z\rightarrow 0$ Therefore 
+			\begin{align*}
+				\int_{\infty}^{\infty}f(x)dx = -\lim_{r\rightarrow 0}\oint f(z)dz=\pi
+			\end{align*}
 		\end{enumerate}
 
 
@@ -649,13 +887,53 @@ We will show the usage of the concepts by the solutions provied for each complex
 		\begin{enumerate}
 
 		    \item Determine the poles of f(z)
+			    \begin{align*}
+				    f(z)&=\frac{e^{ikx}}{z^{2}+a^{2}}\\
+				    z^{2}+a^{2}&=0\\
+				    (z+ai)(z-ai)&=0\\
+				    z&=\pm ai
+			    \end{align*}
 		\item Come up with a proper contour so that you could use residue theorem and determine $\int_{\infty}^{\infty} f(x) dx$
-
+			\begin{align*}
+			    \int_{\infty}^{\infty}f(x)dx+0=2\pi i R_{ai}\\
+			\end{align*}
+			\begin{align*}
+				R_{ai}&= \frac{e_{ikz}}{z^{2}+a^{2}}(z-ai)|_{z=ai} = \frac{e^{ikz}}{(z+ai)'(z-ai)'} = \frac{e^{ik(aI)}}{ai+ai}=\frac{e^{-ka}}{2ai}\\
+				\int_{\infty}^{\infty}f(x)dx&=2 \pi i (\frac{e^{-ka}}{2ai})=\pi \frac{e^{-ka}}{a}
+			\end{align*}
 		\end{enumerate}
 
 	\item In order to prove Cauchy's first integral theorem, we used Cauchy's condition for analytic complex functions as well as the Stoke's theorem to show that the real part of the integral $\oint f(z)dz=0$. Similarly, show that the imaginary part of $\oint f(z)dz=0$ as well. $f(z) \equiv u(x,y)+iv(x,y)$.
-
+		\begin{align*}
+			f(z)&\equiv u(x,y)+iv(x,y)\\
+			f(z)&=u+iv\\
+			dz&= dx+idy
+		\end{align*}
+		\begin{align*}
+			\oint f(z)dz&= \oint (u+iv)(dx+idy)=\oint (udx-vdy)+i \oint(vdx+udy)\\
+			A&=(v,u),\quad v(x,y) \quad u(x,y)\\
+			\oint \vec{A} \cdot d \vec{l} &= \oint \oint(\nabla \times A)\cdot n^{hat} ds\\
+			(\nabla \times A) \cdot n^{hat} = (\pdv{u}{x}-\pdv{v}{y})z^{hat}z^{hat}=\pdv{u}{x}-\pdv{v}{y}=0
+		\end{align*}
 	\item The residue for the function $\frac{1}{x^{4}+1}$ at $z_{1}=e^{\frac{i\pi}{4}} \equiv \frac{\sqrt{2}}{2}(1+i)$; Compute the residues at the other three poles as well.
+		\begin{align*}
+			z&=e^{i \frac{\pi}{4}},e^{i \frac{3\pi}{4}}, e^{i \frac{5\pi}{4}}, e^{i \frac{7\pi}{4}}\\
+			e^{i \frac{\pi}{4}}&=cos(\frac{\pi}{4})+isin(\frac{\pi}{4})=\frac{\sqrt{2}}{2}+i \frac{\sqrt{2}}{2}\\
+			e^{i \frac{3\pi}{4}}&=cos(\frac{3\pi}{4})+isin(\frac{3\pi}{4})=\frac{-\sqrt{2}}{2}+i \frac{\sqrt{2}}{2}\\
+			e^{i \frac{5\pi}{4}}&=cos(\frac{5\pi}{4})+isin(\frac{5\pi}{4})=\frac{-\sqrt{2}}{2}-i \frac{\sqrt{2}}{2}\\
+			e^{i \frac{7\pi}{4}}&=cos(\frac{7\pi}{4})+isin(\frac{7\pi}{4})=\frac{\sqrt{2}}{2}-i \frac{\sqrt{2}}{2}
+		\end{align*}
+		\begin{align*}
+			r_{2}&=\frac{1}{(z_{2}-e^{i \frac{pi}{4}})(z_{2}-e^{i \frac{5\pi}{4}})(z_{2}-e^{i \frac{7\pi}{4}})}|_{z_{2} = e^{i \frac{3\pi}{4}}}\\
+			     &=\frac{1}{(\frac{-\sqrt{2}}{2}+i \frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}-i \frac{\sqrt{2}}{2})(-\frac{\sqrt{2}}{2}+i \frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}+i \frac{\sqrt{2}}{2})(-\frac{\sqrt{2}}{2}+i \frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}+i \frac{\sqrt{2}}{2})}\\
+			     &=\frac{1}{(-\sqrt{2})(i\sqrt{2})(-\sqrt{2}+i\sqrt{2})}=\frac{1}{2i\sqrt{2}+2\sqrt{2}}=\frac{\frac{\sqrt{2}}{2}-i \frac{\sqrt{2}}{2}}{4}=\frac{e^{i \frac{7\pi}{4}}}{4}
+		\end{align*}
+		\begin{align*}
+		    r_{3}&=\frac{1}{(z_{3}-e^{i \frac{pi}{4}})(z_{3}-e^{i \frac{3\pi}{4}})(z_{3}-e^{i \frac{7\pi}{4}})}|_{z_{3} = e^{i \frac{5\pi}{4}}} = \frac{e^{i \frac{\pi}{4}}}{4}	 
+		\end{align*}
+		\begin{align*}
+		    r_{4}&=\frac{1}{(z_{4}-e^{i \frac{pi}{4}})(z_{4}-e^{i \frac{3\pi}{4}})(z_{4}-e^{i \frac{5\pi}{4}})}|_{z_{3} = e^{i \frac{7\pi}{4}}} = \frac{e^{i \frac{3\pi}{4}}}{4}	 
+		\end{align*}
 
 \end{enumerate}
 
@@ -728,6 +1006,7 @@ The unit circle and it's corresponding angles are provided in both degree's and 
               (0cm,1.25cm)  node[fill=white] {$(0,1)$};
     \end{tikzpicture}
 \end{center}
+
 
 
 \end{document}
